@@ -1,6 +1,7 @@
 //***********************************
 // All of the webserver handlers except for the example "inline" server
 
+// the root web page
 void handleRoot() {
   digitalWrite(led, 1);
   String message = "I am a web server!\n";
@@ -11,6 +12,8 @@ void handleRoot() {
   digitalWrite(led, 0);
 }
 
+// this handler allows direct control of GPIO pins on the EP8266
+// with direct access from a web page.  A manually typed in URL will work
 void handleGPIO(){
   String message = "GPIO control\n\n";
   message += "URI: ";
@@ -27,6 +30,10 @@ void handleGPIO(){
   message += "GPIO " + server.arg(0) + "\n";
   message += "STATE " + server.arg(1) + "\n";
 
+// pick on of these sets of server commands, depending on whether
+// you want to see the result of the command, or you want 
+// to be redirected (as from and to the contro page) 
+
 // manual, showing results   
   server.send(200, "text/plain", message);
 // or linked
@@ -39,7 +46,7 @@ void handleGPIO(){
 
 // this could have been done a different way, but this method
 // allows you to do completely different things for each GPIO pin controlled
-//  see https://github.com/gds32571/antsw2/blob/master/antsw2-public.ino for an example
+// see https://github.com/gds32571/antsw2/blob/master/antsw2-public.ino for an example
 
   switch (myGPIO){
      case 12:
