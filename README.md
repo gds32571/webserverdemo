@@ -13,7 +13,7 @@ of 27 April 2021.
 
 ## secrets-public.h
 
-   Modify to connect to your WiFi router.
+   Modify (and rename to secrets.h) to connect to your WiFi router.
 
    
    
