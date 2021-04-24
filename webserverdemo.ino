@@ -58,23 +58,18 @@ void setup(void){
 
 // these statements make the connection between a path 
 // in the URL and the function to handle it
-
 // first one shows the main (root) page
   server.on("/", handleRoot);
-
 // for manual GPIO control as from a HTML file on your PC
   server.on("/GPIO", handleGPIO);
-
 // generates an HTML page with clickable links  
   server.on("/control", handleControl);
-
 // doesn't require a separate handler section
   server.on("/inline", [](){
     String message = "this works as well \n";
     message += "line 2 is here";
     server.send(200, "text/plain", message); 
   });
-
   server.onNotFound(handleNotFound);
 
 // start the webserver
