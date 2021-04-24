@@ -9,10 +9,11 @@ of 27 April 2021.
    
 ## handlers.ino
 
-   The web page generators, sepearted for simplicity.
+   The web page generators, separated for simplicity.
 
 ## secrets-public.h
 
    Modify to connect to your WiFi router.
 
+   
    
