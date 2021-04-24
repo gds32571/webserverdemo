@@ -37,6 +37,10 @@ void handleGPIO(){
   int myGPIO = server.arg(0).toInt();
   int mySTATE = server.arg(1).toInt();
 
+// this could have been done a different way, but this method
+// allows you to do completely different things for each GPIO pin controlled
+//  see https://github.com/gds32571/antsw2/blob/master/antsw2-public.ino for an example
+
   switch (myGPIO){
      case 12:
        pinMode(myGPIO, OUTPUT); 
