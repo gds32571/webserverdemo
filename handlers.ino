@@ -30,9 +30,9 @@ void handleGPIO(){
   message += "GPIO " + server.arg(0) + "\n";
   message += "STATE " + server.arg(1) + "\n";
 
-// pick on of these sets of server commands, depending on whether
+// pick one of these sets of server commands, depending on whether
 // you want to see the result of the command, or you want 
-// to be redirected (as from and to the contro page) 
+// to be redirected (as from and to the control page) 
 
 // manual, showing results   
 //  server.send(200, "text/plain", message);
