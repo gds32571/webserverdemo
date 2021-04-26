@@ -3,13 +3,13 @@
 
 // the root web page
 void handleRoot() {
-  digitalWrite(led, 1);
+//  digitalWrite(led, 1);
   String message = "I am a web server!\n";
   message += "running " + String(progname) +", version " + String(myVersion) + "\n";
   message += "This is the root\n";
   message += "Running for " + String(millis()/1000) + " seconds\n";
   server.send(200, "text/plain", message);
-  digitalWrite(led, 0);
+//  digitalWrite(led, 0);
 }
 
 // this handler allows direct control of GPIO pins on the EP8266
@@ -35,10 +35,10 @@ void handleGPIO(){
 // to be redirected (as from and to the contro page) 
 
 // manual, showing results   
-  server.send(200, "text/plain", message);
+//  server.send(200, "text/plain", message);
 // or linked
-//  server.sendHeader("Location", "./control");     // Add a header to respond with a new location for the browser to go to the home page again
-//  server.send(303);                       // Send it back to the browser with an HTTP status 303 (See Other) to redirect
+  server.sendHeader("Location", "./control");     // Add a header to respond with a new location for the browser to go to the home page again
+  server.send(303);                          // Send it back to the browser with an HTTP status 303 (See Other) to redirect
 
 
   int myGPIO = server.arg(0).toInt();
@@ -52,25 +52,25 @@ void handleGPIO(){
      case 12:
        pinMode(myGPIO, OUTPUT); 
        digitalWrite(myGPIO, mySTATE);  
-       digitalWrite(led, !digitalRead(led));
+//       digitalWrite(led, !digitalRead(led));
        Serial.println("pin " + server.arg(0) + " set to " + server.arg(1)); 
        break;  
      case 13:
        pinMode(myGPIO, OUTPUT); 
        digitalWrite(myGPIO, mySTATE);  
-       digitalWrite(led, !digitalRead(led));
+//       digitalWrite(led, !digitalRead(led));
        Serial.println("pin " + server.arg(0) + " set to " + server.arg(1)); 
        break;  
      case 14:
        pinMode(myGPIO, OUTPUT); 
        digitalWrite(myGPIO, mySTATE);  
-       digitalWrite(led, !digitalRead(led));
+//       digitalWrite(led, !digitalRead(led));
        Serial.println("pin " + server.arg(0) + " set to " + server.arg(1)); 
        break;  
      default:
        pinMode(myGPIO, OUTPUT); 
        Serial.println("Invalid pin");
-       digitalWrite(led, 0);
+//       digitalWrite(led, 0);
   }
        
 }
@@ -93,7 +93,7 @@ void handleControl() {                     // If a GET request is made to URI /c
 
  
 void handleNotFound(){
-  digitalWrite(led, 1);
+//  digitalWrite(led, 1);
   String message = "File Not Found\n\n";
   message += "URI: ";
   message += server.uri();
@@ -106,5 +106,5 @@ void handleNotFound(){
     message += " " + server.argName(i) + ": " + server.arg(i) + "\n";
   }
   server.send(404, "text/plain", message);
-  digitalWrite(led, 0);
+//  digitalWrite(led, 0);
 }

@@ -34,7 +34,7 @@ void handleNotFound(void);
 //************************************
 void setup(void){
   pinMode(led, OUTPUT);
-  digitalWrite(led, 0);
+//  digitalWrite(led, 0);
   Serial.begin(115200);
   WiFi.mode(WIFI_STA);
   WiFi.hostname(WiFi_hostname);
